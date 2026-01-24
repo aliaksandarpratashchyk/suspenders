@@ -1,0 +1,28 @@
+---
+# yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/issue.schema.yml
+title: '🚀 feat: setup project and scaffold initial implementation'
+milestone: '🚀 Project Setup and Initial Implementation'
+labels:
+  - 'type:feature'  
+  - 'priority:high'
+description: |
+  Set up the project tooling and scaffold the initial implementation of the Suspenders TypeScript assertion/type-guard toolkit.
+
+  ## 🎯 Goal
+  Ship a small but complete v1 foundation: buildable, testable, documented, and ready for iteration.
+
+  ## 🧩 Subtasks
+  - Scaffold TypeScript project structure (`src`, tests, build outputs)
+  - Configure build (`webpack`), declarations, and API docs generation (API Extractor/Documenter)
+  - Add linting/formatting (`eslint`, `prettier`)
+  - Add tests and coverage reporting (`jest`, coverage badge artifacts)
+  - Implement core types (`TypePredicate`, `Constructor`)
+  - Implement initial API surface:
+    - Type guards (`isString`, `isNumber`, `isBoolean`, `isBigInt`, `isSymbol`, `isFunction`, `isPlainObject`, `isUndefined`, `isNull`, `isDate`, `isInstanceOf`)
+    - Casting helpers (`safe`, `unsafe`, `exclude`)
+    - Assertion helpers (`assert` kit)
+
+  ## ✅ Outcomes
+  - Library builds to `dist/` with a bundled entry and `.d.ts` types
+  - CI can run tests and publish workflows are present
+  - Documentation can be generated to `docs/` and README reflects core usage

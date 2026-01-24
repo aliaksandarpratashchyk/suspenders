@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/milestone.schema.yml
+title: '🚀 Project Setup & Initial Implementation'
+description: |  
+  Initialize the repository structure and developer tooling for the Suspenders TypeScript library.
+  Scaffold the first usable API surface (assertions, safe casts, and common type guards).
+
+  ### 🎯 Goal
+  Establish a clean, reproducible foundation for building, testing, documenting, and publishing the library.
+
+  ### ✅ Outcomes
+  - TypeScript project scaffolded (strict config, declarations)
+  - Build pipeline in place (webpack bundle + `.d.ts`)
+  - API docs generation wired up (API Extractor + API Documenter)
+  - Test + coverage reporting configured (Jest + coverage badge artifacts)
+  - Initial core implementation shipped (`assert`, `safe`, `unsafe`, `is*` type guards)

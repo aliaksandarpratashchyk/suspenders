@@ -1,0 +1,6 @@
+{
+	"files.associations": { "*.json": "jsonc" },
+	"files.eol": "\n",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.configPath": ".prettierrc.json"	
+}
