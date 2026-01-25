@@ -24,8 +24,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Sync issue into repository storage
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACTION: ${{ github.event.action }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
