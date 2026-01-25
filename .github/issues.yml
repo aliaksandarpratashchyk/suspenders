@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/issue.schema.yml
-# hash: 4abee83601213fc1ea543dd7e0ca8268
+# hash: 13cdeefb0155c5ca1bfd6a1593a087c9
 
 number: 3
 title: "🚀 feat: setup project and scaffold initial implementation"
@@ -7,7 +7,7 @@ milestone: 3
 labels:
   - priority:high
   - type:feature
-state: open
+state: closed
 description: |
   Set up the project tooling and scaffold the initial implementation of the Suspenders TypeScript assertion/type-guard toolkit.
 
