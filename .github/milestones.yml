@@ -1,6 +1,10 @@
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/milestone.schema.yml
-title: '🚀 Project Setup & Initial Implementation'
-description: |  
+# hash: d30cab516cbb72e7deba0ea701e00253
+
+number: 3
+title: 🚀 Project Setup & Initial Implementation
+state: open
+description: |
   Initialize the repository structure and developer tooling for the Suspenders TypeScript library.
   Scaffold the first usable API surface (assertions, safe casts, and common type guards).
 

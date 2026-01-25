@@ -1,58 +1,78 @@
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'priority:critical'
-color: 'd73a4a'
-description: 'Must be fixed immediately. Blocks releases.'
+# hash: f148fdb64388f5404b936cce46456393
+
+name: priority:critical
+color: d73a4a
+description: Must be fixed immediately. Blocks releases.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'priority:high'
-color: 'ff6f59'
-description: 'Should be worked on soon; blocks major features.'
+# hash: 75999db6204be5e5236fd04285aed715
+
+name: priority:high
+color: ff6f59
+description: Should be worked on soon; blocks major features.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'priority:medium'
-color: 'fbca04'
-description: 'Normal importance tasks.'
+# hash: ae3dead8808c77fcb920c6c42c4f0746
+
+name: priority:medium
+color: fbca04
+description: Normal importance tasks.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'priority:low'
-color: 'c2e0c6'
-description: 'Nice-to-have, no urgency.'
+# hash: 8f21e2c52747063336e4145ab6e0256e
+
+name: priority:low
+color: c2e0c6
+description: Nice-to-have, no urgency.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'type:feature'
-color: '0e8a16'
-description: 'New functionality for automation tools.'
+# hash: c0f3659e099aa74276e85654accd2440
+
+name: type:feature
+color: 0e8a16
+description: New functionality for automation tools.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'type:enhancement'
-color: '84b6eb'
-description: 'Improvements to existing workflows.'
+# hash: 8d7e72df9a2ec3630540d5efb32f2ed6
+
+name: type:enhancement
+color: 84b6eb
+description: Improvements to existing workflows.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'type:bug'
-color: 'd73a4a'
-description: 'Incorrect or failing behavior.'
+# hash: c958e75ae8f50f139d6a1db48808e155
+
+name: type:bug
+color: d73a4a
+description: Incorrect or failing behavior.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'type:refactor'
-color: 'c5def5'
-description: 'Internal code-level improvement.'
+# hash: 8df913b0cd8cc9842947f12ebeaf23bb
+
+name: type:refactor
+color: c5def5
+description: Internal code-level improvement.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'type:documentation'
-color: '006b75'
-description: 'Documentation or README updates.'
+# hash: b47e5203b37790fb67e6680ce7dde8a3
+
+name: type:documentation
+color: 006b75
+description: Documentation or README updates.
 
 ---
 # yaml-language-server: $schema=../node_modules/@aliaksandarpratashchyk/kickcat/schemas/label.schema.yml
-name: 'type:chore'
-color: 'ededed'
-description: 'Maintenance, CI updates, or dependency updates.'
+# hash: 319cb3a81c20bd8fe4f4c70c91b5bc47
+
+name: type:chore
+color: ededed
+description: Maintenance, CI updates, or dependency updates.
