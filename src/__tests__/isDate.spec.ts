@@ -18,7 +18,7 @@ describe('isDate', () => {
         ${null}                          | ${false}
         ${undefined}                     | ${false}
         ${[]}                            | ${false}
-    `('given $value', ({ value, expected }) => {
+    `('given $value', ({ expected, value }) => {
         it(`should return "${expected}".`, () => {            
             expect(isDate(value)).toBe(expected);
         });

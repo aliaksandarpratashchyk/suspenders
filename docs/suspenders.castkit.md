@@ -208,6 +208,25 @@ Safely casts to `number`<!-- -->.
 </td></tr>
 <tr><td>
 
+[object](./suspenders.castkit.object.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Cast](./suspenders.cast.md)<!-- -->&lt;unknown, object&gt;
+
+
+</td><td>
+
+Safely casts to object.
+
+
+</td></tr>
+<tr><td>
+
 [plainObject](./suspenders.castkit.plainobject.md)
 
 

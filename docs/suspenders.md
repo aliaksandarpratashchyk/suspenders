@@ -19,6 +19,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[exclude(predicate)](./suspenders.exclude.md)
+
+
+</td><td>
+
+Produces a predicate that negates another predicate.
+
+
+</td></tr>
+<tr><td>
+
 [isBigInt(value)](./suspenders.isbigint.md)
 
 
@@ -63,6 +74,17 @@ Creates a type predicate that checks `value instanceof ctor`<!-- -->.
 </td></tr>
 <tr><td>
 
+[isNull(value)](./suspenders.isnull.md)
+
+
+</td><td>
+
+Checks whether a value is `null`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
 [isNumber(value)](./suspenders.isnumber.md)
 
 
@@ -74,12 +96,34 @@ Checks whether a value is a `number`<!-- -->.
 </td></tr>
 <tr><td>
 
+[isObject(value)](./suspenders.isobject.md)
+
+
+</td><td>
+
+Checks whether a value is an object.
+
+
+</td></tr>
+<tr><td>
+
 [isPlainObject(value)](./suspenders.isplainobject.md)
 
 
 </td><td>
 
 Checks whether a value is a plain object (`Object.prototype`<!-- -->).
+
+
+</td></tr>
+<tr><td>
+
+[isSame(value)](./suspenders.issame.md)
+
+
+</td><td>
+
+Creates a type predicate function that checks whether a value is strictly equal to the provided value.
 
 
 </td></tr>
@@ -102,6 +146,17 @@ Checks whether a value is a `string`<!-- -->.
 </td><td>
 
 Checks whether a value is a `symbol`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[isUndefined(value)](./suspenders.isundefined.md)
+
+
+</td><td>
+
+Checks whether a value is `undefined`<!-- -->.
 
 
 </td></tr>

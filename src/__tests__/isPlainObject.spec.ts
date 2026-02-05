@@ -28,7 +28,7 @@ describe(isPlainObject.name, () => {
         ${ null }                | ${ false }
         ${ undefined }           | ${ false }
         ${ new Date() }          | ${ false }
-    `('given $value', ({ value, expected }) => {
+    `('given $value', ({ expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isPlainObject(value)).toBe(expected);
         });

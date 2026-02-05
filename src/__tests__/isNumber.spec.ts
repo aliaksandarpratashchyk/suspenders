@@ -24,7 +24,7 @@ describe(isNumber, () => {
         ${undefined}        | ${false}
         ${true}             | ${false}
         ${() => 42}         | ${false}
-    `("given $value", ({ value, expected }) => {
+    `("given $value", ({ expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isNumber(value)).toBe(expected);
         });

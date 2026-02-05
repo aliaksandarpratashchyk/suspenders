@@ -4,20 +4,22 @@
  * Licensed under MIT (see LICENSE) 
  */
 
-import isUndefined from "./isUndefined";
+import type { Constructor } from "./Constructor";
+import type { TypePredicate } from "./TypePredicate";
+
+import exclude from "./exclude";
 import isBigInt from "./isBigInt";
 import isBoolean from "./isBoolean";
+import isDate from "./isDate";
 import isFunction from "./isFunction";
+import isInstanceOf from "./isInstanceOf";
 import isNull from "./isNull";
 import isNumber from "./isNumber";
+import isObject from "./isObject";
 import isPlainObject from "./isPlainObject";
 import isString from "./isString";
 import isSymbol from "./isSymbol";
-import type { Constructor } from "./Constructor";
-import isInstanceOf from "./isInstanceOf";
-import type { TypePredicate } from "./TypePredicate";
-import exclude from "./exclude";
-import isDate from "./isDate";
+import isUndefined from "./isUndefined";
 
 /**
  * A cast function signature.
@@ -45,12 +47,13 @@ export function safe<TIn, TOut extends TIn>(
     };
 }
 
-safe.bigInt = safe(isBigInt, 'Value is not a bigint');
+safe.bigInt = safe(isBigInt, 'Value is not a bigint.');
 safe.boolean = safe(isBoolean, 'Value is not a boolean.');
 safe.date = safe(isDate);
 safe.function = safe(isFunction, 'Value is not a function.');
 safe.number = safe(isNumber, 'Value is not a number.');
-safe.plainObject = safe(isPlainObject, 'Value is not an object.');
+safe.object = safe(isObject, 'Value is not an object.');
+safe.plainObject = safe(isPlainObject, 'Value is not a plain object.');
 safe.string = safe(isString, 'Value is not a string.');
 safe.symbol = safe(isSymbol, 'Value is not a symbol.');
 
@@ -111,26 +114,6 @@ export interface CastKIT {
     function: Cast<unknown, Function>;
 
     /**
-     * Safely casts to `number`.
-     */
-    number: Cast<unknown, number>;
-
-    /**
-     * Safely casts to plain object.
-     */
-    plainObject: Cast<unknown, object>;
-
-    /**
-     * Safely casts to `string`.
-     */
-    string: Cast<unknown, string>;
-
-    /**
-     * Safely casts to `symbol`.
-     */
-    symbol: Cast<unknown, symbol>;
-
-    /**
      * Asserts that a value is an instance of the provided constructor.
      * 
      * @param ctor - The constructor to check against.
@@ -149,6 +132,13 @@ export interface CastKIT {
         message?: string) => <TSource extends TIn>(value: TSource) => Exclude<TSource, TExclude>;
 
     /**
+     * Safely casts to non-`null`.
+     * 
+     * @param value - The value to check.     
+     */
+    notNull: <TIn>(value: TIn) => Exclude<TIn, null>;
+
+    /**
      * Safely casts to non-`undefined`.
      * 
      * @param value - The value to check.     
@@ -156,11 +146,29 @@ export interface CastKIT {
     notUndefined: <TIn>(value: TIn) => Exclude<TIn, undefined>;
 
     /**
-     * Safely casts to non-`null`.
-     * 
-     * @param value - The value to check.     
+     * Safely casts to `number`.
      */
-    notNull: <TIn>(value: TIn) => Exclude<TIn, null>;
+    number: Cast<unknown, number>;
+
+    /**
+     * Safely casts to object.
+     */
+    object: Cast<unknown, object>;
+
+    /**
+     * Safely casts to plain object.
+     */
+    plainObject: Cast<unknown, object>;
+
+    /**
+     * Safely casts to `string`.
+     */
+    string: Cast<unknown, string>;
+
+    /**
+     * Safely casts to `symbol`.
+     */
+    symbol: Cast<unknown, symbol>;
 }
 
 /**

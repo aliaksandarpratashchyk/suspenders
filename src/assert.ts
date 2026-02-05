@@ -4,20 +4,22 @@
  * Licensed under MIT (see LICENSE) 
  */
 
+import type { Constructor } from "./Constructor";
+import type { TypePredicate } from "./TypePredicate";
+
+import exclude from "./exclude";
 import isBigInt from "./isBigInt";
 import isBoolean from "./isBoolean";
-import type { TypePredicate } from "./TypePredicate";
+import isDate from "./isDate";
 import isFunction from "./isFunction";
+import isInstanceOf from "./isInstanceOf";
+import isNull from "./isNull";
 import isNumber from "./isNumber";
+import isObject from "./isObject";
 import isPlainObject from "./isPlainObject";
 import isString from "./isString";
 import isSymbol from "./isSymbol";
-import type { Constructor } from "./Constructor";
-import isInstanceOf from "./isInstanceOf";
-import exclude from "./exclude";
 import isUndefined from "./isUndefined";
-import isNull from "./isNull";
-import isDate from "./isDate";
 
 /**
  * The base assertion function signature.
@@ -27,15 +29,6 @@ import isDate from "./isDate";
  * @public
  */
 export type Assert = (condition: boolean, message?: string) => asserts condition;
-
-function assert(
-    condition: boolean, 
-    message?: string
-): asserts condition {
-    if (!condition) {
-        throw new Error(message ?? 'Assertion failed');
-    }        
-}
 
 /**
  * Builds an assertion function from a runtime predicate.
@@ -57,6 +50,15 @@ export function createTypeAssert<TIn, TOut extends TIn>(
     };
 }
 
+function assert(
+    condition: boolean, 
+    message?: string
+): asserts condition {
+    if (!condition) {
+        throw new Error(message ?? 'Assertion failed');
+    }        
+}
+
 assert.type = createTypeAssert;
 
 assert.bigInt = createTypeAssert(isBigInt, 'Value is not a bigint');
@@ -64,6 +66,7 @@ assert.boolean = createTypeAssert(isBoolean, 'Value is not a boolean.');
 assert.date = createTypeAssert(isDate);
 assert.function = createTypeAssert(isFunction, 'Value is not a function.');
 assert.number = createTypeAssert(isNumber, 'Value is not a number.');
+assert.object = createTypeAssert(isObject, 'Value is not an object.');
 assert.plainObject = createTypeAssert(isPlainObject, 'Value is not an object.');
 assert.string = createTypeAssert(isString, 'Value is not a string.');
 assert.symbol = createTypeAssert(isSymbol, 'Value is not a symbol.');
@@ -103,15 +106,6 @@ export interface AssertKIT {
     (condition: boolean, message?: string): asserts condition;
 
     /**
-     * Builds an assertion function from a runtime predicate.
-     * 
-     * @param predicate - The predicate to base the assertion on.
-     * @param message - Optional custom error message.
-     * @returns An assertion function.
-     */
-    type: <TIn, TOut extends TIn>(predicate: TypePredicate<TIn, TOut>, message?: string) => TypeAssert<TIn, TOut>;
-
-    /**
      * Asserts that a value is a `bigint`.     
      */
     bigInt: TypeAssert<unknown, bigint>;
@@ -132,26 +126,6 @@ export interface AssertKIT {
     function: TypeAssert<unknown, Function>;
 
     /**
-     * Asserts that a value is a `number`.
-     */
-    number: TypeAssert<unknown, number>;
-
-    /**
-     * Asserts that a value is a plain object.
-     */
-    plainObject: TypeAssert<unknown, object>;
-
-    /**
-     * Asserts that a value is a `string`.
-     */
-    string: TypeAssert<unknown, string>;
-
-    /**
-     * Asserts that a value is a `symbol`.
-     */
-    symbol: TypeAssert<unknown, symbol>;
-
-    /**
      * Asserts that a value is an instance of the provided constructor.
      * 
      * @param ctor - The constructor to check against.
@@ -170,6 +144,13 @@ export interface AssertKIT {
         message?: string) => <TSource extends TIn>(value: TSource) => asserts value is Exclude<TSource, TExclude>;
 
     /**
+     * Asserts that a value is NOT `null`.
+     * 
+     * @param value - The value to check.     
+     */
+    notNull: <TIn>(value: TIn) => asserts value is Exclude<TIn, null>;
+
+    /**
      * Asserts that a value is NOT `undefined`.
      * 
      * @param value - The value to check.     
@@ -177,11 +158,38 @@ export interface AssertKIT {
     notUndefined: <TIn>(value: TIn) => asserts value is Exclude<TIn, undefined>;
 
     /**
-     * Asserts that a value is NOT `null`.
-     * 
-     * @param value - The value to check.     
+     * Asserts that a value is a `number`.
      */
-    notNull: <TIn>(value: TIn) => asserts value is Exclude<TIn, null>;
+    number: TypeAssert<unknown, number>;
+
+    /**
+     * Asserts that a value is an object.
+     */
+    object: TypeAssert<unknown, object>;
+
+    /**
+     * Asserts that a value is a plain object.
+     */
+    plainObject: TypeAssert<unknown, object>;
+
+    /**
+     * Asserts that a value is a `string`.
+     */
+    string: TypeAssert<unknown, string>;
+
+    /**
+     * Asserts that a value is a `symbol`.
+     */
+    symbol: TypeAssert<unknown, symbol>;
+
+    /**
+     * Builds an assertion function from a runtime predicate.
+     * 
+     * @param predicate - The predicate to base the assertion on.
+     * @param message - Optional custom error message.
+     * @returns An assertion function.
+     */
+    type: <TIn, TOut extends TIn>(predicate: TypePredicate<TIn, TOut>, message?: string) => TypeAssert<TIn, TOut>;
 }
 
 /**

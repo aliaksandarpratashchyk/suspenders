@@ -20,7 +20,7 @@ describe(isSymbol.name, () => {
         ${[]}              | ${false}
         ${true}            | ${false}
         ${false}           | ${false}
-    `('given $value', ({ value, expected }) => {
+    `('given $value', ({ expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isSymbol(value)).toBe(expected);
         });

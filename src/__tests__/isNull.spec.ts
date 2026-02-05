@@ -19,7 +19,7 @@ describe(isNull.name, () => {
         ${true}          | ${false}
         ${Symbol('foo')} | ${false}
         ${() => {}}      | ${false}
-    `('given $value', ({ value, expected }) => {
+    `('given $value', ({ expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isNull(value)).toBe(expected);
         });

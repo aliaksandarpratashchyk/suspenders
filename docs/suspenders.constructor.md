@@ -9,5 +9,5 @@ A constructor signature for `new (...args) => T`<!-- -->.
 **Signature:**
 
 ```typescript
-export type Constructor<T = unknown> = new (...args: unknown[]) => T;
+export type Constructor<T = unknown> = new (...args: any[]) => T;
 ```

@@ -18,7 +18,7 @@ describe(isString.name, () => {
         ${[]}               | ${false}
         ${null}             | ${false}
         ${undefined}        | ${false}
-    `("given $value", ({ value, expected }) => {
+    `("given $value", ({ expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isString(value)).toBe(expected);
         });

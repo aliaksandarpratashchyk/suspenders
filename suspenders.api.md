@@ -22,6 +22,7 @@ export interface AssertKIT {
     notNull: <TIn>(value: TIn) => asserts value is Exclude<TIn, null>;
     notUndefined: <TIn>(value: TIn) => asserts value is Exclude<TIn, undefined>;
     number: TypeAssert<unknown, number>;
+    object: TypeAssert<unknown, object>;
     plainObject: TypeAssert<unknown, object>;
     string: TypeAssert<unknown, string>;
     symbol: TypeAssert<unknown, symbol>;
@@ -44,13 +45,17 @@ export interface CastKIT {
     notNull: <TIn>(value: TIn) => Exclude<TIn, null>;
     notUndefined: <TIn>(value: TIn) => Exclude<TIn, undefined>;
     number: Cast<unknown, number>;
+    object: Cast<unknown, object>;
     plainObject: Cast<unknown, object>;
     string: Cast<unknown, string>;
     symbol: Cast<unknown, symbol>;
 }
 
 // @public
-export type Constructor<T = unknown> = new (...args: unknown[]) => T;
+export type Constructor<T = unknown> = new (...args: any[]) => T;
+
+// @public
+export function exclude<TIn, TExclude extends TIn>(predicate: TypePredicate<TIn, TExclude>): <TSource extends TIn>(value: TSource) => value is Exclude<TSource, TExclude>;
 
 // @public
 export function isBigInt(value: unknown): value is bigint;
@@ -68,16 +73,28 @@ export function isFunction(value: unknown): value is Function;
 export function isInstanceOf<T>(ctor: Constructor<T>): TypePredicate<unknown, T>;
 
 // @public
+export function isNull(value: unknown): value is null;
+
+// @public
 export function isNumber(value: unknown): value is number;
 
 // @public
+export function isObject(value: unknown): value is object;
+
+// @public
 export function isPlainObject(value: unknown): value is object;
+
+// @public
+export function isSame<T>(value: T): (other: unknown) => other is T;
 
 // @public
 export function isString(value: unknown): value is string;
 
 // @public
 export function isSymbol(value: unknown): value is symbol;
+
+// @public
+export function isUndefined(value: unknown): value is undefined;
 
 // @public
 export const safe: CastKIT;

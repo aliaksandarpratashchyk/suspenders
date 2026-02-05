@@ -22,7 +22,7 @@ describe(isUndefined.name, () => {
         ${() => {}}      | ${false}
         ${Symbol('foo')} | ${false}
         ${BigInt(10)}    | ${false}
-    `('given $value', ({ value, expected }) => {
+    `('given $value', ({ expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isUndefined(value)).toBe(expected);
         });

@@ -29,7 +29,7 @@ describe(isInstanceOf.name, () => {
         ${Array}    | ${[]}               | ${true}
         ${Array}    | ${(new Array())}    | ${true}
         ${Array}    | ${{}}               | ${false}
-    `('given constructor $ctor and value $value', ({ ctor, value, expected }) => {
+    `('given constructor $ctor and value $value', ({ ctor, expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isInstanceOf(ctor)(value)).toBe(expected);
         });

@@ -208,6 +208,25 @@ Asserts that a value is a `number`<!-- -->.
 </td></tr>
 <tr><td>
 
+[object](./suspenders.assertkit.object.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[TypeAssert](./suspenders.typeassert.md)<!-- -->&lt;unknown, object&gt;
+
+
+</td><td>
+
+Asserts that a value is an object.
+
+
+</td></tr>
+<tr><td>
+
 [plainObject](./suspenders.assertkit.plainobject.md)
 
 

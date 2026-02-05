@@ -20,7 +20,7 @@ describe(isBoolean.name, () => {
         ${undefined}         | ${false}
         ${{}}                | ${false}
         ${[]}                | ${false}
-    `('given $value', ({ value, expected }) => {
+    `('given $value', ({ expected, value }) => {
         it(`should return "${expected}".`, () => {
             expect(isBoolean(value)).toBe(expected);
         });
